@@ -1,3 +1,10 @@
+:root {
+    --primary: #FFEECC;
+    --font-color: #333;
+    --accent-color: green;
+    --font-head: black;
+}
+
 body{
     background:linear-gradient(45deg, #d4dfe8, #c5e3d5) ;
 }
@@ -102,8 +109,7 @@ th[scope = 'col']:last-child{
  }
 
 .navbar-brand img {
-    width: 150px; /* Adjust logo size */
-    height: 150px; /* Adjust logo size */
+    width: 100px;
 }
 
 .navbar-nav .nav-link {
