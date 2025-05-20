@@ -1,71 +1,335 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Main</title>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>KDJPOS - Bootstrap</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-          crossorigin="anonymous">
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+<!--Nav Bar-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="./assets/logo.png" alt="Bootstrap" >
-        </a>
+        <a class="navbar-brand" href="#" data-target="homepage">
+            <img src="assets/logo.png" alt="KDJPOS Logo" style="height: 20px;">
+        </a>        <button   class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="#"
+                       data-target="homepage"
+                    >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customer.html">Customer</a>
+                    <a class="nav-link" href="#" data-target="customer-page"
+                    >Customers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="item.html">Item</a>
+                    <a class="nav-link" href="#" data-target="item-page">Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="order.html">Orders</a>
+                    <a class="nav-link" href="#" data-target="order-page">New Order</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="order_details_nav" href="orderDetails.html">Orders Details</a>
+                    <a class="nav-link" href="#" data-target="order-history-page"
+                    >Order History</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<section id="main-section">
-    <div class="grid-container"><!--
-    <div>
-      <h3>We are improving..</h3>
-    </div>-->
-        <div class="card w-75 mb-3">
+
+<div class="container mt-4">
+
+    <!--Homepage Section-->
+
+
+    <!--Customer Management Section-->
+
+    <div id="customer-page" class="page-section ">
+        <h1 class="mb-4">Customer Management</h1>
+
+        <div class="card mb-4">
+            <div class="card-header">Customer Details</div>
             <div class="card-body">
-                <img src="https://img.icons8.com/?size=100&id=22117&format=png&color=23D449" alt="Bootstrap" width="50">
-                <h5 class="card-title">Total Customers</h5><br>
-                <h1>00</h1>
+
+                <!-- Customer Form-->
+                <form id="customerForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="customerIdInput" class="form-label">Customer ID</label>
+                            <input type="text" class="form-control" id="customerIdInput" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="customerNameInput" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customerNameInput" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="customerEmailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="customerEmailInput">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="customerPhoneInput" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="customerPhoneInput">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="customerAddressInput" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="customerAddressInput">
+                        </div>
+                        <div class="col-12 action-buttons">
+                            <button type="button" class="btn btn-success me-2" id="saveCustomerBtn"><i class="fas fa-save"></i> Save</button>
+                            <button type="button" class="btn btn-warning me-2" id="updateCustomerBtn" disabled><i class="fas fa-edit"></i> Update</button>
+                            <button type="button" class="btn btn-danger me-2" id="deleteCustomerBtn" disabled><i class="fas fa-trash-alt"></i> Delete</button>
+                            <button type="button" class="btn btn-secondary" id="resetCustomerBtn"><i class="fas fa-sync-alt"></i> Reset</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="card w-75 mb-3">
+
+        <!-- Customer Table-->
+        <div class="card">
+            <div class="card-header">Customer List</div>
             <div class="card-body">
-                <img src="https://img.icons8.com/?size=100&id=0zwxkUO3vanZ&format=png&color=23D449" alt="Bootstrap" width="50" height="58">
-                <h5 class="card-title">Total Items</h5><br>
-                <h1>00</h1>
-            </div>
-        </div>
-        <div class="card w-75 mb-3">
-            <div class="card-body">
-                <img src="https://img.icons8.com/?size=100&id=59993&format=png&color=23D449" alt="Bootstrap" width="50" height="58">
-                <h5 class="card-title">Total Orders</h5><br>
-                <h1>00</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody id="customerTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 
-</section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <!--Item Management Section-->
+
+    <div id="item-page" class="page-section ">
+        <h1 class="mb-4">Item Management</h1>
+
+
+        <div class="card mb-4">
+            <div class="card-header">Item Details</div>
+            <div class="card-body">
+
+                <!-- Item Form-->
+                <form id="itemForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="itemCodeInput" class="form-label">Item Code</label>
+                            <input type="text" class="form-control" id="itemCodeInput" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="itemNameInput" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="itemNameInput" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="itemDescriptionInput" class="form-label">Description</label>
+                            <textarea class="form-control" id="itemDescriptionInput" rows="2"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="itemPriceInput" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="itemPriceInput" step="0.01" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="itemQuantityInput" class="form-label">Quantity on Hand</label>
+                            <input type="number" class="form-control" id="itemQuantityInput" required>
+                        </div>
+                        <div class="col-12 action-buttons">
+                            <button type="button" class="btn btn-success me-2" id="saveItemBtn"><i class="fas fa-save"></i> Save</button>
+                            <button type="button" class="btn btn-warning me-2" id="updateItemBtn" disabled><i class="fas fa-edit"></i> Update</button>
+                            <button type="button" class="btn btn-danger me-2" id="deleteItemBtn" disabled><i class="fas fa-trash-alt"></i> Delete</button>
+                            <button type="button" class="btn btn-secondary" id="resetItemBtn"><i class="fas fa-sync-alt"></i> Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Item Table-->
+        <div class="card">
+            <div class="card-header">Item List</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody id="itemTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Order Management Section-->
+
+    <div id="order-page" class="page-section ">
+        <h1 class="mb-4">New Order</h1>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-white">
+                        <h5 class="mb-0">Select Items</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search items..." id="orderItemSearchInput">
+                            <button class="btn btn-outline-secondary" type="button" disabled>
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+
+                        <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Item</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody id="availableItemsTableBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-white">
+                        <h5 class="mb-0">Order Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="orderCustomerSelect" class="form-label">Customer</label>
+                            <select class="form-select" id="orderCustomerSelect">
+                                <option value="" selected disabled>Select Customer</option>
+
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="orderDateInput" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="orderDateInput" disabled>
+                        </div>
+
+                        <h6>Items in Order:</h6>
+                        <div id="orderItemsList" style="max-height: 200px; overflow-y: auto;">
+
+                            <div class="text-muted text-center py-3">No items added yet</div>
+                        </div>
+
+                        <div class="border-top pt-3 mt-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="orderSubtotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax (10%):</span>
+                                <span id="orderTax">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Total:</span>
+                                <span id="orderTotal">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button class="btn btn-success" id="placeOrderBtn">
+                                <i class="fas fa-check-circle"></i> Place Order
+                            </button>
+                            <button class="btn btn-outline-danger" id="cancelOrderBtn">
+                                <i class="fas fa-times"></i> Cancel Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Order History Section-->
+
+    <div id="order-history-page" class="page-section ">
+        <h1 class="mb-4">Order History</h1>
+
+        <div class="card">
+            <div class="card-header">Past Orders</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="orderHistoryTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="lib/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script type="module" src="controller/CustomerController.js"></script>
+<script type="module" src="controller/ItemController.js"></script>
+<script type="module" src="controller/OrderController.js"></script>
+<script type="module" src="controller/OrderHistoryController.js"></script>
+<script src="util/validation.js"></script>
+<script src="util/pageNavigations.js"></script>
+
 </body>
 </html>
+
