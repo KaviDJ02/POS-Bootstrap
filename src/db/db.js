@@ -1,4 +1,3 @@
-// Db with test data
 
 export let customers_db = [
     { id: 'C101', name: 'John Doe', email: 'johndoe@example.com', phone: '0721234567', address: 'Colombo' },

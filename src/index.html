@@ -61,6 +61,34 @@
 
     <!--Homepage Section-->
 
+    <div id="homepage" class="page-section active">
+        <div class="container">
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="custom-card text-center shadow">
+                        <i class="fas fa-users fa-3x icon-green mb-3"></i>
+                        <h5 class="fw-bold">Total Customers</h5>
+                        <p id="total-customers" class="fs-5">0</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card text-center shadow">
+                        <i class="fas fa-shopping-cart fa-3x icon-green mb-3"></i>
+                        <h5 class="fw-bold">Total Orders</h5>
+                        <p id="total-orders" class="fs-5">0</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card text-center shadow">
+                        <i class="fas fa-box fa-3x icon-green mb-3"></i>
+                        <h5 class="fw-bold">Total Items</h5>
+                        <p id="total-items" class="fs-5">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!--Customer Management Section-->
 
@@ -327,6 +355,8 @@
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
 <script type="module" src="controller/OrderHistoryController.js"></script>
+<script type="module" src="util/dashboard.js"></script>
+
 <script src="util/validation.js"></script>
 <script src="util/pageNavigations.js"></script>
 

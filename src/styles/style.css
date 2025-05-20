@@ -49,3 +49,20 @@
 
 .nav-link.active {
     border-bottom: 2px solid #28a745; /* Active underline green color */}
+
+
+.custom-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-green {
+    color: #50cd89;
+}
