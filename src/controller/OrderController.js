@@ -1,5 +1,6 @@
 import {customers_db, items_db, orders_db,} from "../db/db.js";
 import OrderModel from "../model/OrderModel.js";
+import { dashboardUpdateEvent } from '../util/dashboard.js';
 
 // --- Order Management ---
 const $orderCustomerSelect = $('#orderCustomerSelect');
@@ -367,9 +368,20 @@ $placeOrderBtn.on('click', function () {
     let order_data = new OrderModel(orderId, date, cusId, customerName, items, subtotal, tax, total);
     
     if (validateOrder(order_data)) {
+        // Update item quantities in the items_db array
+        items.forEach(orderItem => {
+            const itemIndex = items_db.findIndex(item => item.code === orderItem.code);
+            if (itemIndex !== -1) {
+                // Reduce the quantity in items_db by the ordered quantity
+                items_db[itemIndex].quantity -= orderItem.quantity;
+            }
+        });
+
         orders_db.push(order_data);
         Swal.fire({title: "Success", text: `Order ${orderId} placed successfully!`, icon: "success"});
         resetOrderForm();
+
+        document.dispatchEvent(dashboardUpdateEvent);
         
     } else {
         Swal.fire({

@@ -14,3 +14,6 @@ export let items_db = [
 
 export let orders_db = [];
 
+window.customers_db = customers_db;
+window.items_db = items_db;
+window.orders_db = orders_db;

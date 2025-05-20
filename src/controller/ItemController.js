@@ -1,6 +1,7 @@
 
 import {customers_db, items_db} from "../db/db.js";
 import ItemModel from "../model/ItemModel.js";
+import { dashboardUpdateEvent } from '../util/dashboard.js';
 
 // Item Management Part
 
@@ -159,15 +160,11 @@ $(document).ready(function () {
             loadItemsTable();
             // Reset the form
             resetItemForm();
-            
+
+            document.dispatchEvent(dashboardUpdateEvent);
+
         }
-        // else {
-        //     Swal.fire({
-        //         icon: "error",
-        //         title: "Oops...",
-        //         text: `Invalid item data`
-        //     });
-        // }
+
     }
     
     // Function to update an item
@@ -207,14 +204,10 @@ $(document).ready(function () {
 
                 //reset the item form
                 resetItemForm();
+
+                document.dispatchEvent(dashboardUpdateEvent);
+
             }
-            // else {
-            //     Swal.fire({
-            //         icon: "error",
-            //         title: "Oops...",
-            //         text: `Invalid item data!`
-            //     });
-            // }
         }
     }
     
@@ -261,6 +254,9 @@ $(document).ready(function () {
         //reset the item form
         resetItemForm();
 
+        document.dispatchEvent(dashboardUpdateEvent);
+
+
     }
 
     //Button click bindings
@@ -295,6 +291,8 @@ $(document).ready(function () {
     });
     // Reset item form when reset button clicked
     $resetItemBtn.on('click', resetItemForm);
+
+    document.dispatchEvent(dashboardUpdateEvent);
 
 });
 

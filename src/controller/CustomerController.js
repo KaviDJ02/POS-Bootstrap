@@ -1,5 +1,6 @@
 import {customers_db} from "../db/db.js";
 import CustomerModel from "../model/CustomerModel.js";
+import {dashboardUpdateEvent} from "../util/dashboard.js";
 
 // Customer Management Part
 
@@ -159,15 +160,10 @@ $(document).ready(function () {
             loadCustomersTable();
             // Reset the form
             resetCustomerForm();
-            
+
+            document.dispatchEvent(dashboardUpdateEvent);
+
         }
-        // else {
-        //     Swal.fire({
-        //         icon: "error",
-        //         title: "Oops...",
-        //         text: `Invalid customer data`
-        //     });
-        // }
     }
     
     //function update customer
@@ -207,14 +203,8 @@ $(document).ready(function () {
 
                 //reset the customer form
                 resetCustomerForm();
+
             }
-            // else {
-            //     Swal.fire({
-            //         icon: "error",
-            //         title: "Oops...",
-            //         text: `Invalid customer data!`
-            //     });
-            // }
         }
     }
     
@@ -241,6 +231,8 @@ $(document).ready(function () {
         loadCustomersTable();
         //reset the customer form
         resetCustomerForm();
+
+        document.dispatchEvent(dashboardUpdateEvent);
 
     }
 
